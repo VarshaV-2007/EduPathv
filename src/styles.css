@@ -1,0 +1,145 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.975 0.012 235);
+  --foreground: oklch(0.20 0.025 245);
+  --card: oklch(0.995 0.006 230);
+  --card-foreground: oklch(0.20 0.025 245);
+  --popover: oklch(0.995 0.006 230);
+  --popover-foreground: oklch(0.20 0.025 245);
+  --primary: oklch(0.63 0.15 230);
+  --primary-foreground: oklch(0.99 0.005 230);
+  --secondary: oklch(0.93 0.018 230);
+  --secondary-foreground: oklch(0.25 0.035 245);
+  --muted: oklch(0.94 0.012 230);
+  --muted-foreground: oklch(0.47 0.025 245);
+  --accent: oklch(0.78 0.08 225);
+  --accent-foreground: oklch(0.22 0.035 245);
+  --destructive: oklch(0.58 0.18 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.60 0.11 205);
+  --success-foreground: oklch(0.99 0 0);
+  --warning: oklch(0.72 0.12 82);
+  --warning-foreground: oklch(0.25 0.04 78);
+  --border: oklch(0.86 0.025 230);
+  --input: oklch(0.86 0.025 230);
+  --ring: oklch(0.63 0.15 230);
+  --chart-1: oklch(0.63 0.15 230);
+  --chart-2: oklch(0.70 0.09 215);
+  --chart-3: oklch(0.78 0.055 245);
+  --chart-4: oklch(0.61 0.08 195);
+  --chart-5: oklch(0.66 0.06 275);
+  --sidebar: oklch(0.985 0.009 235);
+  --sidebar-foreground: oklch(0.20 0.025 245);
+  --sidebar-primary: oklch(0.63 0.15 230);
+  --sidebar-primary-foreground: oklch(0.99 0.005 230);
+  --sidebar-accent: oklch(0.93 0.018 230);
+  --sidebar-accent-foreground: oklch(0.25 0.035 245);
+  --sidebar-border: oklch(0.86 0.025 230);
+  --sidebar-ring: oklch(0.63 0.15 230);
+}
+
+.dark { color-scheme: light; }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { color-scheme: light; scroll-behavior: smooth; }
+  body {
+    background: linear-gradient(135deg, #dff5ff 0%, #edf7fc 38%, #d9e0e7 72%, #f4f7fa 100%);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      radial-gradient(35rem 25rem at 8% 4%, rgba(94, 200, 255, .25), transparent 65%),
+      radial-gradient(30rem 22rem at 92% 12%, rgba(196, 207, 218, .35), transparent 65%);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+}
+
+@utility surface {
+  background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(231,240,247,.68));
+  border: 1px solid rgba(130, 158, 180, .30);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 45px rgba(52, 84, 108, .09), inset 0 1px rgba(255,255,255,.75);
+  backdrop-filter: blur(16px);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(100deg, #3aaee8, #77c9ee 48%, #8b99a7 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; }
+}
+
+/* Interaction polish */
+:where(a, button) { touch-action: manipulation; }
+:where(a):focus-visible, :where(button):focus-visible, :where(input, textarea, select):focus-visible {
+  outline: 3px solid rgba(76, 177, 232, .28);
+  outline-offset: 2px;
+}
